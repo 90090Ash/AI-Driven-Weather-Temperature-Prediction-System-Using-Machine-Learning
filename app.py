@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import pickle
 import numpy as np
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 model = pickle.load(open("model/weather_model.pkl", "rb"))
 
@@ -27,3 +29,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run()
+
